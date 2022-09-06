@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Test</title>
+		<script charset="utf-8">
+			var jhj1 = "Jo Hyeong Jun";
+			var jhj2 = {
+				name:"Jo Hyeong Jun",
+				age:25,
+				gender:"Male",
+				hobby:"coding"
+			}
+			var jhj3 = JSON.stringify(jhj2);
+			function set_text(input){
+				document.getElementById('txt1').value = input;
+			}
+			function set_text2(){
+				document.getElementById('txt2').value = document.getElementById('range1').value;
+			}
+			function set_text3(){
+				document.getElementById('txt3').value = jhj2.name;
+			}
+			function make_json(){
+				document.getElementById('txt4').value = JSON.stringify(jhj2);
+			}
+			function parse_json(){
+				var my_json = JSON.parse(jhj3);
+				document.getElementById('txt1').value = my_json.name;
+				document.getElementById('txt2').value = my_json.age;
+				document.getElementById('txt3').value = my_json.gender;
+				document.getElementById('txt4').value = my_json.hobby;
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" value="text box" id="txt1"/><br>
+		<input type="text" value="text box" id="txt2"/><br>
+		<input type="text" value="text box" id="txt3"/><br>
+		<input type="text" value="text box" id="txt4"/><br>
+		<input type="button" value="button1" id="button1" onClick="set_text('button1 pushed')"/><br>
+		<input type="button" value="button2" id="button2" onClick="set_text('button2 pushed')"/><br>
+		<input type="button" value="button3" id="button3" onClick="set_text3()"/><br>
+		<input type="button" value="json button" id="json_button" onClick="make_json()"/><br>
+		<input type="button" value="parse button" id="parse_button" onClick="parse_json()"/><br>
+		<input type="range" value="100" id="range1" oninput="set_text2()"/>
+	</body>
+</html>
